@@ -7,9 +7,10 @@
 `$ sh init.start.sh`
 ### 打包
 `$ npm run build`
+### 分析项目
+`$ sh init.analyze.sh`
 
 ### 1.Typescript的ESlint配置
-参考地址：[Typescript配置](https://ts.xcatliu.com/engineering/lint)
 ##### 1. 安装ESLint
 `$ npm install eslint --save-dev`
 
@@ -82,44 +83,7 @@ alias: {
 ##### 3. 重启项目：npm start
 
 ### 其它
-#### 1. antd/antd-mobile的动态引入
-```
-// package.json中添加
-"plugins": [
-    [
-      "import",
-      {
-        "libraryName": "antd-mobile",
-        "style": "css"
-      }
-    ],
-    ...
-  ]
-// webpack.config.js中添加如下
-oneof: [
-  some code.....
-  {
-    test: /\.(js|mjs|jsx|ts|tsx)$/,
-    include: paths.appSrc,
-    loader: require.resolve('babel-loader'),
-    options: {
-      customize: require.resolve(
-        'babel-preset-react-app/webpack-overrides'
-      ),
-      plugins: [
-        some code.....
-        [
-          require.resolve('babel-plugin-import'),
-          { libraryName: 'antd-mobile', style: 'css' }
-        ]
-      ],
-      some code.....
-    },
-  },
-]
-
-```
-#### 2. 配置sass全局变量
+#### 1. 配置sass全局变量
 安装`sass-resources-loader`
 `$ npm i sass-resources-loader --save-dev`  
 
@@ -179,7 +143,7 @@ rules: {
   ...
 }
 ```
-#### 3. vconsole调试插件的引入
+#### 2. vconsole调试插件的引入
 `$ npm i vconsole --save-dev`
 在入口文件index.tsx中import且创建vcosole实例
 ```
@@ -188,7 +152,7 @@ const vConsole = new VConsole()
 ```
 在typescript中引入会报找不到对应ts的模块，在react-app-env.d.ts中增加全局声明
 `declare module 'vconsole'`
-#### 4. 生产打包去除console、debugger
+#### 3. 生产打包去除console、debugger
 ```
 // webpack之前的打包压缩插件是uglifyjs-webpack-plugin，现
 在换成了terser-webpack-plugin
@@ -207,7 +171,7 @@ const vConsole = new VConsole()
       ...somecode
     },
 ```
-#### 5. 打包去除.map文件
+#### 4. 打包去除.map文件
 ```
 // 修改webpack.config.js中的devtool配置
 devtool: isEnvProduction
@@ -220,7 +184,7 @@ devtool: isEnvProduction
       ? false
       : isEnvDevelopment && 'cheap-module-source-map'
 ```
-#### 6. 项目分析:
+#### 5. 项目分析:
   1.需要开启.map文件
   2.安装插件：
   ```
@@ -235,11 +199,5 @@ devtool: isEnvProduction
   npm run build
   npm run analyze
   ```
-#### 7. vscode新建文件时的文件模板
 ```
-在vscode"创建用户代码片段"，代码详见common文件夹下的：
-vscode.react-hooks.code-snippets.json
-vscode.react-ts.code-snippets
-```
-
 ## 配置完不生效时，请重启编辑器！
