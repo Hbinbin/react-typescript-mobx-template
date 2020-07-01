@@ -6,6 +6,36 @@
       "dom.iterable",
       "esnext"
     ],
+    "baseUrl": "src",
+    "paths": {
+      "@pages/*": [
+        "pages/*"
+      ],
+      "@cps": [
+        "components/index"
+      ],
+      "@mobx/*": [
+        "mobx/*"
+      ],
+      "@api": [
+        "api/index"
+      ],
+      "@utils": [
+        "common/utils/index"
+      ],
+      "@common/*": [
+        "common/*"
+      ],
+      "@css/*": [
+        "assets/css/*"
+      ],
+      "@images/*": [
+        "assets/images/*"
+      ],
+      "@ctrls/*": [
+        "controllers/*"
+      ]
+    },
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -15,11 +45,13 @@
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "isolatedModules": true,
+    "isolatedModules": false,
     "noEmit": true,
-    "jsx": "react"
+    "jsx": "react",
+    "experimentalDecorators": true
   },
   "include": [
-    "src"
+    "src",
+    "src/typings/index.d.ts"
   ]
 }
