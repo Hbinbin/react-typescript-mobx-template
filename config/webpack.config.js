@@ -305,7 +305,7 @@ module.exports = function (webpackEnv) {
         ...(modules.webpackAliases || {}),
         '@pages': joinPath('/src/pages'),
         '@cps': joinPath('/src/components/index'),
-        '@mobx': joinPath('/src/mobx'),
+        '@rootMobx': joinPath('/src/mobx/rootMobx.ts'),
         '@api': joinPath('/src/api/index'),
         '@utils': joinPath('/src/common/utils/index'),
         '@common': joinPath('/src/common'),

@@ -14,8 +14,8 @@
       "@cps": [
         "components/index"
       ],
-      "@mobx/*": [
-        "mobx/*"
+      "@rootMobx": [
+        "mobx/rootMobx.ts"
       ],
       "@api": [
         "api/index"

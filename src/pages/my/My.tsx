@@ -1,5 +1,5 @@
 import React, { FC, useState, useEffect } from 'react'
-import { observer, inject } from 'mobx-react'
+import { observer } from 'mobx-react'
 import '@css/my.scss'
 
 // interface
@@ -18,4 +18,4 @@ const My: FC<IProps> = ({ userMobx }) => {
   )
 }
 
-export default inject('userMobx')(observer(My))
+export default observer(My)

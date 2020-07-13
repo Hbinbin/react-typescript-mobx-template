@@ -1,6 +1,7 @@
 import React, { FC, useState, useEffect } from 'react'
-import { observer, inject } from 'mobx-react'
+import { observer } from 'mobx-react'
 import '@css/home.scss'
+import rootMobx from '@rootMobx'
 
 // interface
 interface IProps extends IMobx {
@@ -18,4 +19,4 @@ const Home: FC<IProps> = ({ }) => {
   )
 }
 
-export default inject()(observer(Home))
+export default observer(Home)
