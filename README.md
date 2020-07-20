@@ -184,6 +184,13 @@ devtool: isEnvProduction
       ? false
       : isEnvDevelopment && 'cheap-module-source-map'
 ```
+#### 4.1 加快构建速度
+devtool的值会影响构建速度
+[参考webpack-devtool](https://www.webpackjs.com/configuration/devtool/#%E5%93%81%E8%B4%A8%E8%AF%B4%E6%98%8E-quality-)
+```
+devtool: 'cheap-module-eval-source-map'
+```
+
 #### 5. 项目分析:
   1.需要开启.map文件
   2.安装插件：
